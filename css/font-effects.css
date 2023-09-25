@@ -1,0 +1,35 @@
+.chinese {
+  width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chinese .txt {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 140px;
+  font-weight: 600;
+  color: #8c8b8b;
+  text-shadow: 0 0 0 rgba(255, 255, 255, 1);
+  transform-style: preserve-3d;
+  perspective: 300px;
+}
+.txt::before,
+.txt::after {
+  position: absolute;
+  content: attr(data-txt);
+  color: #51c6f9;
+  text-shadow: none;
+  /* 变形基准为左侧 */
+  transform-origin: left;
+  transition: 0.5s;
+}
+.txt:hover::before {
+  transform: rotateY(-60deg);
+}
+.txt:hover::after {
+  z-index: -1;
+}
